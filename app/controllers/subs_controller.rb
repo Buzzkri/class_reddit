@@ -31,6 +31,7 @@ class SubsController < ApplicationController
   end
 
   def edit
+    # render :edit
     render partial: "form"
   end
 
@@ -39,7 +40,7 @@ class SubsController < ApplicationController
     if @sub.update(sub_params)
       redirect_to sub_path(@sub.id)
     else
-      render :edit
+      render partial: "form"
     end
   end
 
@@ -55,8 +56,6 @@ class SubsController < ApplicationController
     end
 
     def set_sub
-      # url = /subs/2
-    # params = { id:2 }
       @sub = Sub.find(params[:id])
     end
 
